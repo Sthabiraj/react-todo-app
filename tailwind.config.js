@@ -35,7 +35,11 @@ export default {
       fontWeight: {
         bold: 700,
       },
+      backgroundImage: {
+        darkThemeImage: "url(./src/assets/images/bg-desktop-dark.jpg)",
+        lightThemeImage: "url(./src/assets/images/bg-desktop-light.jpg)",
+      },
     },
   },
-  plugins: [],
+  plugins: [require("daisyui")],
 };

@@ -2,8 +2,8 @@ import React from "react";
 
 const Checkbox = () => {
   return (
-    <div>
-      <input type="checkbox" />
+    <div className="flex justify-center items-center">
+      <input type="checkbox" className="checkbox checkbox-md rounded-xl" />
     </div>
   );
 };
