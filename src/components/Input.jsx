@@ -3,11 +3,11 @@ import Box from "./UI/Box";
 import Checkbox from "./UI/Checkbox";
 import InputBox from "./UI/InputBox";
 
-const Input = () => {
+const Input = ({ isDark }) => {
   return (
-    <Box>
+    <Box isDark={isDark}>
       <Checkbox />
-      <InputBox />
+      <InputBox isDark={isDark} />
     </Box>
   );
 };

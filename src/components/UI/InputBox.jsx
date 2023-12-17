@@ -1,12 +1,16 @@
 import React from "react";
 
-const InputBox = () => {
+const InputBox = ({ isDark }) => {
   return (
     <div className="w-full">
       <input
         type="text"
         placeholder="Create a new todo..."
-        className="bg-darkTheme-veryDarkDesaturatedBlue focus:outline-none font-josefinSans text-base text-darkTheme-lightGrayishBlue placeholder-darkTheme-darkGrayishBlue w-full"
+        className={`bg-transparent focus:outline-none font-josefinSans text-base ${
+          isDark
+            ? "text-darkTheme-lightGrayishBlue placeholder-darkTheme-darkGrayishBlue"
+            : "text-lightTheme-veryDarkGrayishBlue placeholder-lightTheme-darkGrayishBlue"
+        } w-full`}
       />
     </div>
   );
