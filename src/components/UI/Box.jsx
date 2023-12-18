@@ -7,7 +7,7 @@ const Box = ({ children, isDark }) => {
         isDark
           ? "bg-darkTheme-veryDarkDesaturatedBlue"
           : "bg-lightTheme-veryLightGrayishBlue"
-      } flex gap-5 px-7 py-4 w-screen max-w-lg`}
+      } flex gap-5 px-6 py-4 w-screen max-w-lg mb-5`}
     >
       {children}
     </div>
