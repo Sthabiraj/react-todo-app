@@ -7,7 +7,7 @@ const Input = ({ isDark, isReadonly }) => {
   const style = `rounded ${
     isDark
       ? "bg-darkTheme-veryDarkDesaturatedBlue"
-      : "bg-lightTheme-veryLightGrayishBlue"
+      : "bg-lightTheme-veryLightGray"
   } flex gap-5 px-6 py-4 w-screen max-w-lg mb-5`;
 
   return (

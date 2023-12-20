@@ -13,7 +13,7 @@ const App = () => {
   const style = `flex flex-col items-center h-screen ${
     isDark
       ? "bg-darkTheme-veryDarkBlue bg-darkThemeImage"
-      : "bg-lightTheme-veryLightGray bg-lightThemeImage"
+      : "bg-lightTheme-veryLightGrayishBlue bg-lightThemeImage"
   }  bg-no-repeat`;
 
   return (
