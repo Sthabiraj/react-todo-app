@@ -1,5 +1,3 @@
-import React from "react";
-
 const TodoActions = () => {
   return (
     <div className="flex px-6 py-4 justify-between text-sm font-josefinSans font-semibold text-darkTheme-veryDarkGrayishBlue-default">
