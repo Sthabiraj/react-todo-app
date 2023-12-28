@@ -1,5 +1,3 @@
-import React from "react";
-
 const Header = ({ toggleTheme, isDark }) => {
   return (
     <div className="flex justify-between w-screen max-w-lg mb-8 mt-20 ">
