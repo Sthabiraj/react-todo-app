@@ -1,4 +1,3 @@
-import React from "react";
 import Checkbox from "./UI/Checkbox";
 import InputBox from "./UI/InputBox";
 
