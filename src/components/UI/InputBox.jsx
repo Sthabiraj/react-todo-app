@@ -1,16 +1,17 @@
-const InputBox = ({ isDark, isReadonly, value }) => {
+const InputBox = ({ isDark, value, handleChange, handleKeyPress }) => {
   return (
     <div className="w-full">
       <input
         type="text"
-        placeholder={!isReadonly ? "Create a new todo..." : ""}
+        placeholder="Create a new todo..."
         className={`bg-transparent focus:outline-none font-josefinSans text-base ${
           isDark
             ? "text-darkTheme-lightGrayishBlue placeholder-darkTheme-darkGrayishBlue"
             : "text-lightTheme-veryDarkGrayishBlue placeholder-lightTheme-darkGrayishBlue"
         } w-full`}
-        readOnly={isReadonly}
         value={value}
+        onChange={handleChange}
+        onKeyUp={handleKeyPress}
       />
     </div>
   );
