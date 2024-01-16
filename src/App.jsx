@@ -2,13 +2,14 @@ import Input from "./components/Input";
 import Header from "./components/Header";
 import { useState } from "react";
 import Todos from "./components/UI/Todos";
+import { TodoContextProvider } from "./contexts/index";
 
 const App = () => {
   const [isDark, setIsDark] = useState(true);
   const [todos, setTodos] = useState([]);
 
   const toggleTheme = () => {
-    setIsDark(!isDark);
+    setIsDark((prev) => !prev);
   };
 
   const style = `flex flex-col items-center h-screen ${
@@ -18,7 +19,27 @@ const App = () => {
   }  bg-no-repeat`;
 
   const addTodo = (todo) => {
-    setTodos([...todos, todo]);
+    setTodos((prev) => [{ id: Date.now(), ...todo }, ...prev]);
+  };
+
+  const deleteTodo = (id) => {
+    setTodos((prev) => prev.filter((todo) => todo.id !== id));
+  };
+
+  const updateTodo = (id, todo) => {
+    setTodos((prevTodo) =>
+      prev.map((todo) => (todo.id === id ? todo : prevTodo))
+    );
+  };
+
+  const toggleCompleted = (id) => {
+    setTodos((prev) =>
+      prev.map((prevTodo) =>
+        prevTodo.id === id
+          ? { ...prevTodo, completed: !prevTodo.completed }
+          : prevTodo
+      )
+    );
   };
 
   const [value, setValue] = useState("");
@@ -35,16 +56,20 @@ const App = () => {
   };
 
   return (
-    <div className={style}>
-      <Header toggleTheme={toggleTheme} isDark={isDark} />
-      <Input
-        isDark={isDark}
-        value={value}
-        handleChange={handleChange}
-        handleKeyPress={handleKeyPress}
-      />
-      <Todos isDark={isDark} todos={todos} />
-    </div>
+    <TodoContextProvider
+      value={{ todos, addTodo, deleteTodo, updateTodo, toggleCompleted }}
+    >
+      <div className={style}>
+        <Header toggleTheme={toggleTheme} isDark={isDark} />
+        <Input
+          isDark={isDark}
+          value={value}
+          handleChange={handleChange}
+          handleKeyPress={handleKeyPress}
+        />
+        <Todos isDark={isDark} todos={todos} />
+      </div>
+    </TodoContextProvider>
   );
 };
 
