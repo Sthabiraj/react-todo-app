@@ -6,7 +6,7 @@ const Header = ({ toggleTheme, isDark }) => {
       </h1>
       <button onClick={toggleTheme}>
         <img
-          src={`src/assets/images/icon-${isDark ? "sun" : "moon"}.svg`}
+          src={`src/assets/icons/icon-${isDark ? "sun" : "moon"}.svg`}
           alt="sun icon"
         />
       </button>
