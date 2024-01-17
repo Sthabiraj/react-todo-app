@@ -1,4 +1,18 @@
-const InputBox = ({ isDark, value, handleChange, handleKeyPress }) => {
+import { useState } from "react";
+import { useTodo } from "../../contexts/index";
+
+const InputBox = ({ isDark }) => {
+  const [todo, setTodo] = useState("");
+  const { addTodo } = useTodo();
+
+  const add = (e) => {
+    if (e.key === "Enter") {
+      if (!todo) return;
+      addTodo({ todo, completed: false });
+      setTodo("");
+    }
+  };
+
   return (
     <div className="w-full">
       <input
@@ -9,9 +23,9 @@ const InputBox = ({ isDark, value, handleChange, handleKeyPress }) => {
             ? "text-darkTheme-lightGrayishBlue placeholder-darkTheme-darkGrayishBlue"
             : "text-lightTheme-veryDarkGrayishBlue placeholder-lightTheme-darkGrayishBlue"
         } w-full`}
-        value={value}
-        onChange={handleChange}
-        onKeyUp={handleKeyPress}
+        value={todo}
+        onChange={(e) => setTodo(e.target.value)}
+        onKeyUp={add}
       />
     </div>
   );

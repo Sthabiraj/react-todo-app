@@ -1,11 +1,7 @@
-const Checkbox = ({ toggleCheckbox }) => {
+const Checkbox = () => {
   return (
     <div className="flex justify-center items-center">
-      <input
-        type="checkbox"
-        className="checkbox checkbox-md rounded-xl"
-        onChange={toggleCheckbox}
-      />
+      <input type="checkbox" className="checkbox checkbox-md rounded-xl" />
     </div>
   );
 };
