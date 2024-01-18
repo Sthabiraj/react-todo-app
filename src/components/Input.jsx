@@ -2,7 +2,7 @@ import Box from "./UI/Box";
 import Checkbox from "./UI/Checkbox";
 import InputBox from "./UI/InputBox";
 
-const Input = ({ isDark, value, handleChange, handleKeyPress }) => {
+const Input = ({ isDark }) => {
   const style = `rounded ${
     isDark
       ? "bg-darkTheme-veryDarkDesaturatedBlue"
@@ -12,12 +12,7 @@ const Input = ({ isDark, value, handleChange, handleKeyPress }) => {
   return (
     <Box className={style}>
       <Checkbox />
-      <InputBox
-        isDark={isDark}
-        value={value}
-        handleChange={handleChange}
-        handleKeyPress={handleKeyPress}
-      />
+      <InputBox isDark={isDark} />
     </Box>
   );
 };

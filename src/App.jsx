@@ -42,31 +42,13 @@ const App = () => {
     );
   };
 
-  const [value, setValue] = useState("");
-
-  const handleChange = (event) => {
-    setValue(event.target.value);
-  };
-
-  const handleKeyPress = (event) => {
-    if (event.key === "Enter") {
-      addTodo(value);
-      setValue("");
-    }
-  };
-
   return (
     <TodoContextProvider
       value={{ todos, addTodo, deleteTodo, updateTodo, toggleCompleted }}
     >
       <div className={style}>
         <Header toggleTheme={toggleTheme} isDark={isDark} />
-        <Input
-          isDark={isDark}
-          value={value}
-          handleChange={handleChange}
-          handleKeyPress={handleKeyPress}
-        />
+        <Input isDark={isDark} />
         <Todos isDark={isDark} todos={todos} />
       </div>
     </TodoContextProvider>
