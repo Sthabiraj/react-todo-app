@@ -10,6 +10,7 @@ const App = () => {
 
   const toggleTheme = () => {
     setIsDark((prev) => !prev);
+    console.log("hello world");
   };
 
   const style = `flex flex-col items-center h-screen ${
