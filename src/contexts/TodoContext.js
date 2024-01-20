@@ -12,6 +12,7 @@ export const TodoContext = createContext({
   deleteTodo: (id) => {},
   updateTodo: (id, todo) => {},
   toggleCompleted: (id) => {},
+  isDark: false,
 });
 
 export const useTodo = () => {

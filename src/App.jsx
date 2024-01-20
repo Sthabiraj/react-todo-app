@@ -3,6 +3,7 @@ import Header from "./components/Header";
 import { useState } from "react";
 import Todos from "./components/UI/Todos";
 import { TodoContextProvider } from "./contexts/index";
+import { useEffect } from "react";
 
 const App = () => {
   const [isDark, setIsDark] = useState(true);
@@ -10,8 +11,11 @@ const App = () => {
 
   const toggleTheme = () => {
     setIsDark((prev) => !prev);
-    console.log("hello world");
   };
+
+  useEffect(() => {
+    toggleTheme();
+  }, [setIsDark]);
 
   const style = `flex flex-col items-center h-screen ${
     isDark
@@ -45,12 +49,19 @@ const App = () => {
 
   return (
     <TodoContextProvider
-      value={{ todos, addTodo, deleteTodo, updateTodo, toggleCompleted }}
+      value={{
+        todos,
+        addTodo,
+        deleteTodo,
+        updateTodo,
+        toggleCompleted,
+        isDark,
+      }}
     >
       <div className={style}>
-        <Header toggleTheme={toggleTheme} isDark={isDark} />
-        <Input isDark={isDark} />
-        <Todos isDark={isDark} todos={todos} />
+        <Header toggleTheme={toggleTheme} />
+        <Input />
+        <Todos />
       </div>
     </TodoContextProvider>
   );

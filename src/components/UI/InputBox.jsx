@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { useTodo } from "../../contexts/index";
 
-const InputBox = ({ isDark }) => {
+const InputBox = () => {
   const [todo, setTodo] = useState("");
   const { addTodo } = useTodo();
 
@@ -12,6 +12,8 @@ const InputBox = ({ isDark }) => {
       setTodo("");
     }
   };
+
+  const { isDark } = useTodo();
 
   return (
     <div className="w-full">

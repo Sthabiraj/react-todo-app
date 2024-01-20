@@ -3,7 +3,9 @@ import Checkbox from "./UI/Checkbox";
 import { useTodo } from "../contexts";
 import { useRef } from "react";
 
-const Todo = ({ isDark, todo }) => {
+const Todo = ({ todo }) => {
+  const { isDark } = useTodo();
+
   const [isTodoEditable, setIsTodoEditable] = useState(false);
   const [todoMessage, setTodoMessage] = useState(todo.todo);
 
