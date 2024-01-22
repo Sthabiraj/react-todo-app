@@ -15,14 +15,19 @@ const Todos = () => {
     isCompleted,
   } = useTodo();
 
-  const style = `rounded shadow-2xl ${
+  const style = `rounded  ${
     isDark
       ? "bg-darkTheme-veryDarkDesaturatedBlue"
       : "bg-lightTheme-veryLightGray"
   } w-screen max-w-lg`;
 
   return (
-    <Box className={style}>
+    <Box
+      className={
+        style +
+        ` shadow-2xl ${isDark ? "" : "shadow-lightTheme-lightGrayishBlue"} `
+      }
+    >
       <div>
         {isAll && todos.map((todo) => <Todo key={todo.id} todo={todo} />)}
         {isActive &&

@@ -11,6 +11,7 @@ const TodoActions = () => {
     isAll,
     isActive,
     isCompleted,
+    isDark,
   } = useTodo();
 
   const showAllTodos = () => {
@@ -40,36 +41,52 @@ const TodoActions = () => {
   };
 
   return (
-    <div className="flex px-6 py-4 justify-between text-sm font-josefinSans font-semibold text-darkTheme-veryDarkGrayishBlue-default">
+    <div
+      className={`flex px-6 py-4 justify-between text-sm font-josefinSans font-semibold ${
+        isDark
+          ? "text-darkTheme-veryDarkGrayishBlue-default"
+          : "text-lightTheme-darkGrayishBlue"
+      }`}
+    >
       <div className="font-normal">{`${activeTodos.length} items left`}</div>
-      <div className="flex gap-4">
+      <div className={`flex gap-4 `}>
         <button
-          className={`${
-            isAll && "text-primary"
-          }  hover:text-darkTheme-lightGrayishBlueHover`}
+          className={`${isAll && "text-primary"} ${
+            isDark
+              ? "hover:text-darkTheme-lightGrayishBlueHover"
+              : "hover:text-lightTheme-veryDarkGrayishBlue"
+          } `}
           onClick={showAllTodos}
         >
           All
         </button>
         <button
-          className={`${
-            isActive && "text-primary"
-          }  hover:text-darkTheme-lightGrayishBlueHover`}
+          className={`${isActive && "text-primary"}  ${
+            isDark
+              ? "hover:text-darkTheme-lightGrayishBlueHover"
+              : "hover:text-lightTheme-veryDarkGrayishBlue"
+          } `}
           onClick={showActiveTodos}
         >
           Active
         </button>
         <button
-          className={`${
-            isCompleted && "text-primary"
-          }  hover:text-darkTheme-lightGrayishBlueHover`}
+          className={`${isCompleted && "text-primary"}  ${
+            isDark
+              ? "hover:text-darkTheme-lightGrayishBlueHover"
+              : "hover:text-lightTheme-veryDarkGrayishBlue"
+          } `}
           onClick={showCompletedTodos}
         >
           Completed
         </button>
       </div>
       <button
-        className="hover:text-darkTheme-lightGrayishBlue font-normal"
+        className={`${
+          isDark
+            ? "hover:text-darkTheme-lightGrayishBlue"
+            : "hover:text-lightTheme-veryDarkGrayishBlue"
+        } font-normal`}
         onClick={clearCompleted}
       >
         Clear Completed

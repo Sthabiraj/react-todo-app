@@ -17,12 +17,6 @@ const App = () => {
   //   toggleTheme();
   // }, [setIsDark]);
 
-  const style = `flex flex-col items-center h-screen ${
-    isDark
-      ? "bg-darkTheme-veryDarkBlue bg-darkThemeImage"
-      : "bg-lightTheme-veryLightGrayishBlue bg-lightThemeImage"
-  }  bg-no-repeat`;
-
   const addTodo = (todo) => {
     setTodos((prev) => [{ id: Date.now(), ...todo }, ...prev]);
   };
@@ -78,7 +72,13 @@ const App = () => {
         isCompleted,
       }}
     >
-      <div className={style}>
+      <div
+        className={`flex flex-col items-center h-screen ${
+          isDark
+            ? "bg-darkTheme-veryDarkBlue bg-darkThemeImage"
+            : "bg-lightTheme-veryLightGray bg-lightThemeImage"
+        }  bg-no-repeat`}
+      >
         <Header toggleTheme={toggleTheme} />
         <Input />
         <Todos />

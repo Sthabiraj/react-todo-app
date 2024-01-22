@@ -4,14 +4,12 @@ import { useTodo } from "../contexts";
 import { useRef } from "react";
 
 const Todo = ({ todo }) => {
-  const { isDark } = useTodo();
-
   const [isTodoEditable, setIsTodoEditable] = useState(false);
   const [todoMessage, setTodoMessage] = useState(todo.todo);
 
   const inputRef = useRef(null);
 
-  const { updateTodo, deleteTodo, toggleCompleted } = useTodo();
+  const { updateTodo, deleteTodo, toggleCompleted, isDark } = useTodo();
 
   const editTodo = () => {
     updateTodo(todo.id, { ...todo, todo: todoMessage });
@@ -38,7 +36,11 @@ const Todo = ({ todo }) => {
 
   return (
     <div
-      className="flex cursor-pointer align-middle gap-5 px-6 py-5 w-screen max-w-lg border-b border-b-darkTheme-veryDarkGrayishBlue-hover"
+      className={`flex cursor-pointer align-middle gap-5 px-6 py-5 w-screen max-w-lg border-b ${
+        isDark
+          ? "border-b-darkTheme-veryDarkGrayishBlue-hover"
+          : "border-b-darkTheme-lightGrayishBlue"
+      }`}
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
     >
@@ -50,8 +52,12 @@ const Todo = ({ todo }) => {
             : "text-lightTheme-veryDarkGrayishBlue"
         } w-full pt-1 ${
           todo.completed &&
-          "line-through text-darkTheme-veryDarkGrayishBlue-default"
-        }`}
+          `line-through ${
+            isDark
+              ? "text-darkTheme-veryDarkGrayishBlue-default"
+              : "text-lightTheme-lightGrayishBlue"
+          }`
+        } ${!isTodoEditable && "cursor-pointer"}`}
         value={todoMessage}
         readOnly={!isTodoEditable}
         onChange={(e) => setTodoMessage(e.target.value)}
