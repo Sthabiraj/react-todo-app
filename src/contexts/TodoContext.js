@@ -8,11 +8,21 @@ export const TodoContext = createContext({
       completed: false,
     },
   ],
+  completedTodos: [],
+  activeTodos: [],
+  showActiveTodos: () => {},
+  showCompletedTodos: () => {},
   addTodo: (todo) => {},
   deleteTodo: (id) => {},
   updateTodo: (id, todo) => {},
   toggleCompleted: (id) => {},
   isDark: false,
+  setIsAll: () => {},
+  setIsActive: () => {},
+  setIsCompleted: () => {},
+  isAll: true,
+  isCompleted: false,
+  isActive: false,
 });
 
 export const useTodo = () => {
