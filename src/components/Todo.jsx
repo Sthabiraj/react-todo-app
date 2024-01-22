@@ -1,5 +1,5 @@
 import { useState } from "react";
-import Checkbox from "./UI/Checkbox";
+import Checkbox from "./UI/Checkbox/Checkbox";
 import { useTodo } from "../contexts";
 import { useRef } from "react";
 
@@ -36,7 +36,7 @@ const Todo = ({ todo }) => {
 
   return (
     <div
-      className={`flex cursor-pointer align-middle gap-5 px-6 py-5 w-screen max-w-lg border-b ${
+      className={`flex cursor-pointer align-middle gap-4 px-5 py-4 w-screen max-w-lg border-b ${
         isDark
           ? "border-b-darkTheme-veryDarkGrayishBlue-hover"
           : "border-b-darkTheme-lightGrayishBlue"

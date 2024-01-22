@@ -1,6 +1,6 @@
 import { useTodo } from "../contexts";
 import Box from "./UI/Box";
-import Checkbox from "./UI/Checkbox";
+import Checkbox from "./UI/Checkbox/Checkbox";
 import InputBox from "./UI/InputBox";
 
 const Input = () => {
@@ -9,7 +9,7 @@ const Input = () => {
     isDark
       ? "bg-darkTheme-veryDarkDesaturatedBlue"
       : "bg-lightTheme-veryLightGray"
-  } flex gap-5 px-6 py-4 w-screen max-w-lg mb-5`;
+  } flex gap-4 px-5 py-4 w-screen max-w-lg mb-5`;
 
   return (
     <Box className={style}>
