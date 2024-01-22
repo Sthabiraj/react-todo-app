@@ -13,9 +13,9 @@ const App = () => {
     setIsDark((prev) => !prev);
   };
 
-  useEffect(() => {
-    toggleTheme();
-  }, [setIsDark]);
+  // useEffect(() => {
+  //   toggleTheme();
+  // }, [setIsDark]);
 
   const style = `flex flex-col items-center h-screen ${
     isDark
@@ -47,15 +47,35 @@ const App = () => {
     );
   };
 
+  const [completedTodos, setCompletedTodos] = useState([]);
+  const [activeTodos, setActiveTodos] = useState([]);
+
+  useEffect(() => {
+    setCompletedTodos(todos.filter((todo) => todo.completed === true));
+    setActiveTodos(todos.filter((todo) => todo.completed === false));
+  }, [todos]);
+
+  const [isAll, setIsAll] = useState(true);
+  const [isActive, setIsActive] = useState(false);
+  const [isCompleted, setIsCompleted] = useState(false);
+
   return (
     <TodoContextProvider
       value={{
         todos,
+        completedTodos,
+        activeTodos,
         addTodo,
         deleteTodo,
         updateTodo,
         toggleCompleted,
         isDark,
+        setIsAll,
+        setIsActive,
+        setIsCompleted,
+        isAll,
+        isActive,
+        isCompleted,
       }}
     >
       <div className={style}>
