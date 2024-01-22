@@ -22,7 +22,7 @@ const Todos = () => {
   } w-screen max-w-lg`;
 
   return (
-    <Box isDark={isDark} className={style}>
+    <Box className={style}>
       <div>
         {isAll && todos.map((todo) => <Todo key={todo.id} todo={todo} />)}
         {isActive &&
