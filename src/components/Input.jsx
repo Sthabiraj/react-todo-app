@@ -13,7 +13,7 @@ const Input = () => {
 
   return (
     <Box className={style}>
-      <Checkbox />
+      <Checkbox completed={false} />
       <InputBox />
     </Box>
   );

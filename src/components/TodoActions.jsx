@@ -48,7 +48,7 @@ const TodoActions = () => {
           : "text-lightTheme-darkGrayishBlue"
       }`}
     >
-      <div className="font-normal">{`${activeTodos.length} items left`}</div>
+      <div className="font-normal">{`${activeTodos?.length} items left`}</div>
       <div className={`flex gap-4 `}>
         <button
           className={`${isAll && "text-primary"} ${

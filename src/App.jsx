@@ -13,10 +13,6 @@ const App = () => {
     setIsDark((prev) => !prev);
   };
 
-  // useEffect(() => {
-  //   toggleTheme();
-  // }, [setIsDark]);
-
   const addTodo = (todo) => {
     setTodos((prev) => [{ id: Date.now(), ...todo }, ...prev]);
   };
@@ -52,6 +48,31 @@ const App = () => {
   const [isAll, setIsAll] = useState(true);
   const [isActive, setIsActive] = useState(false);
   const [isCompleted, setIsCompleted] = useState(false);
+
+  useEffect(() => {
+    const todos = JSON.parse(localStorage.getItem("todos"));
+    const isAll = JSON.parse(localStorage.getItem("isAll"));
+    const isActive = JSON.parse(localStorage.getItem("isActive"));
+    const isCompleted = JSON.parse(localStorage.getItem("isCompleted"));
+    const isDark = JSON.parse(localStorage.getItem("isDark"));
+    setIsDark(isDark);
+    if (todos && todos.length > 0) {
+      setTodos(todos);
+      setCompletedTodos(completedTodos);
+      setActiveTodos(activeTodos);
+      setIsAll(isAll);
+      setIsActive(isActive);
+      setIsCompleted(isCompleted);
+    }
+  }, []);
+
+  useEffect(() => {
+    localStorage.setItem("todos", JSON.stringify(todos));
+    localStorage.setItem("isAll", JSON.stringify(isAll));
+    localStorage.setItem("isActive", JSON.stringify(isActive));
+    localStorage.setItem("isCompleted", JSON.stringify(isCompleted));
+    localStorage.setItem("isDark", JSON.stringify(isDark));
+  }, [todos, isAll, isActive, isCompleted, isDark]);
 
   return (
     <TodoContextProvider
